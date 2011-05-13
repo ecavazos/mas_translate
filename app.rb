@@ -1,8 +1,12 @@
 require 'uri'
+require 'yaml'
 require 'launchy'
+require File.expand_path '../lib/mas_translate/phrase_picker', __FILE__
 
-# shut up your pinche mouth
-phrase = Uri.escape 'Mas Puto!'
+phrases = YAML::load_file('phrases.yml')
+
+picker = MasTranslate::PhrasePicker.new(phrases)
+phrase = URI.escape picker.pick
 url    = "http://translate.google.com/#auto%7Ces%7C#{phrase}"
 
 Launchy.open(url)
