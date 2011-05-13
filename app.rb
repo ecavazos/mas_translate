@@ -1,7 +1,7 @@
 require 'uri'
 require 'yaml'
 require 'launchy'
-require File.expand_path '../lib/mas_translate/phrase_picker', __FILE__
+require File.expand_path '../lib/mas_translate', __FILE__
 
 phrases = YAML::load_file('phrases.yml')
 
