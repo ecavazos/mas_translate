@@ -26,4 +26,14 @@ describe MasTranslate::PhrasePicker do
       phrases.size.must_equal 8
     end
   end
+
+  describe '#pick(name, *options)' do
+    it 'should append "name, " to the front of the phrase' do
+      @picker.pick('Chevin').must_match(/^Chevin, /)
+    end
+
+    it 'should append ", name" to the end of the phrase' do
+      @picker.pick('Chevin', :suffix => true).must_match(/, Chevin$/)
+    end
+  end
 end
