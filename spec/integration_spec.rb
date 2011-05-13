@@ -1,11 +1,14 @@
 require 'minitest/spec'
 
+lib = File.expand_path('../../lib', __FILE__)
+$:.unshift lib unless $:.include?(lib)
+
+require 'mas_translate'
+
 MiniTest::Unit.autorun
 
-class Poop; end
-
-describe Poop do
-  it "foo" do
-    1.must_equal 1
+describe MasTranslate do
+  it "should work" do
+    MasTranslate.run(nil)
   end
 end

@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'mas_translate'
+rescue LoadError 
+  path = File.expand_path('../lib', File.dirname(__FILE__) )
+  raise if $:.include? path
+  $:.unshift(path)
+  retry
+end
+
+MasTranslate.run(ARGV)
+
